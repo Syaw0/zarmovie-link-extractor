@@ -49,6 +49,8 @@ const path = (p) => `https://${BASE_URl}/${p}`;
     paginationItems.length - 2
   ].getText();
 
+  console.log(maxPageNumber);
+
   const postsCon = await driver.findElement(
     By.className("posts_hoder_archive")
   );
