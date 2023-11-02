@@ -11,8 +11,12 @@ const {
 
 class Task_Assigner {
   #tasks = [];
-  #threadNumber = 5;
+  #threadNumber;
   #movies_list_number = 850;
+
+  constructor(threadNumber) {
+    this.#threadNumber = threadNumber;
+  }
 
   async start() {
     console.log("Assigning Tasks...");
