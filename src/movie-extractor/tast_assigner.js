@@ -116,6 +116,34 @@ class Task_Assigner {
   }
 }
 
+async function saveNewThreadConfig(threadId, newConfig) {
+  const PATH = `${WORKER_MAIN_DIR_PATH}/${threadId}/${WORKER_CONFIG_FILE_NAME}`;
+  try {
+    await fs.writeFile(PATH, JSON.stringify(newConfig));
+  } catch (err) {
+    console.log(
+      `Error happen during saving last config for WORKER : ${id} -> \n${err}`
+    );
+  }
+}
+
+async function saveNewThreadExpertData(threadId, newData) {
+  const PATH = `${WORKER_MAIN_DIR_PATH}/${threadId}/${WORKER_MOVIE_DATA_FILE_NAME}`;
+  try {
+    await fs.writeFile(PATH, JSON.stringify(newData));
+  } catch (err) {
+    console.log(
+      `Error happen during saving last expert data for WORKER : ${id} -> \n${err}`
+    );
+  }
+}
+
+module.exports = {
+  Task_Assigner,
+  saveNewThreadConfig,
+  saveNewThreadExpertData,
+};
+
 // (async function () {
 //   const t = new Task_Assigner();
 //   x = await t.start();
