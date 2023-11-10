@@ -5,7 +5,7 @@ const { Task_Assigner } = require("./tast_assigner");
 // ------------------------------------------------------------------------
 
 class Series_Extractor {
-  #threadNumber = 2;
+  #threadNumber = 20;
   #tasks = [];
 
   async start() {
